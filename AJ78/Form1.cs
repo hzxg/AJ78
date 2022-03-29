@@ -33,7 +33,7 @@ namespace AJ78
                 string[] data = BarcodeScanner.Scan(bb, BarCodeType.Code128);
                 if (data.Length == 1)
                 {
-                    database1DataSet.recovered.Rows.Add(null, DateTime.Now, data[0], null, null, null, imageToByte(b));
+                    databaseDataSet.recovered.Rows.Add(null, DateTime.Now, data[0], null, null, null, imageToByte(b),null);
                 }
                 else if (data.Length > 1)
                 {
@@ -52,7 +52,7 @@ namespace AJ78
                     }
                     foreach (var item in li2)
                     {
-                        database1DataSet.recovered.Rows.Add(null, DateTime.Now, item, null, null, null, imageToByte(b));
+                        databaseDataSet.recovered.Rows.Add(null, DateTime.Now, item, null, null, null, imageToByte(b),null);
                     }
                 }
                 else
@@ -104,6 +104,77 @@ namespace AJ78
             MemoryStream ms = new MemoryStream(myByte);
             Image _Image = Image.FromStream(ms);
             return _Image;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // TODO: 这行代码将数据加载到表“databaseDataSet.recovered”中。您可以根据需要移动或移除它。
+            this.recoveredTableAdapter.Fill(this.databaseDataSet.recovered);
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            ShowImage f2 = new ShowImage(pictureBox1.Image); // 开一个子窗口
+            f2.Show(); // 
+        }
+
+        private void button_Save_Click(object sender, EventArgs e)
+        {
+            dataGridView1.EndEdit();
+            recoveredTableAdapter.Update(databaseDataSet);
+        }
+
+        private void button_get_Click(object sender, EventArgs e)
+        {
+            if (radioButton_all.Checked)
+            {
+                this.recoveredTableAdapter.Fill(this.databaseDataSet.recovered);
+            }
+            else if (radioButton_NotDone.Checked)
+            {
+                this.recoveredTableAdapter.FillByNotDone(this.databaseDataSet.recovered);
+            }
+            else if (radioButton_Done.Checked)
+            {
+                this.recoveredTableAdapter.FillByDone(this.databaseDataSet.recovered, dateTimePicker1.Value.AddDays(-7), dateTimePicker1.Value.AddDays(1));
+            }
+            else if (radioButton_Date.Checked)
+            {
+                this.recoveredTableAdapter.FillByDateTime(this.databaseDataSet.recovered, dateTimePicker1.Value, dateTimePicker1.Value.AddDays(1));
+            }
+            else if (radioButton_code.Checked)
+            {
+                if (textBox_code.Text.Length >0)
+                {
+                    this.recoveredTableAdapter.FillByCode(this.databaseDataSet.recovered,textBox_code.Text.Trim());
+                }
+            }
+
+
+
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >-1)
+            {
+                try
+                {
+                    pictureBox1.Image = byteToImage((byte[])dataGridView1.Rows[e.RowIndex].Cells[6].Value);
+                }
+                catch (Exception)
+                {
+
+                }
+
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {   
+
+           
         }
     }
 }
