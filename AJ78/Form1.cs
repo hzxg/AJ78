@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -89,6 +90,20 @@ namespace AJ78
             g.DrawImage(original, new Rectangle(0, 0, original.Width, original.Height), 0, 0, original.Width, original.Height, GraphicsUnit.Pixel, img);
             g.Dispose();
             return newBmp;
+        }
+        //将image转换成byte[]数据
+        private byte[] imageToByte(System.Drawing.Image _image)
+        {
+            MemoryStream ms = new MemoryStream();
+            _image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+            return ms.ToArray();
+        }
+        //将byte[]数据转换成image
+        private Image byteToImage(byte[] myByte)
+        {
+            MemoryStream ms = new MemoryStream(myByte);
+            Image _Image = Image.FromStream(ms);
+            return _Image;
         }
     }
 }
