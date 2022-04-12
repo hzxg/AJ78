@@ -67,6 +67,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChooseCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChooseCode.Designer.cs">
+      <DependentUpon>ChooseCode.cs</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseDataSet.cs">
       <DependentUpon>DatabaseDataSet.xsd</DependentUpon>
     </Compile>
@@ -89,6 +95,9 @@
     <Compile Include="ShowImage.Designer.cs">
       <DependentUpon>ShowImage.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ChooseCode.resx">
+      <DependentUpon>ChooseCode.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
