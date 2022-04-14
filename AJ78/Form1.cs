@@ -23,21 +23,34 @@ namespace AJ78
         {
             InitializeComponent();
             dataGridView1.DoubleBufferedDataGirdView(true);
+            dataGridView_入库.DoubleBufferedDataGirdView(true);
+            dataGridView_出库.DoubleBufferedDataGirdView(true);
+            dataGridView_orderList.DoubleBufferedDataGirdView(true);
 
         }
 
         public Bitmap b;
+        public DataTable dt_出库,dt_入库;
         TreeNode rtn;
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: 这行代码将数据加载到表“databaseDataSet.orderList_入库”中。您可以根据需要移动或移除它。
+            this.orderList_入库TableAdapter.Fill(this.databaseDataSet.orderList_入库);
+            // TODO: 这行代码将数据加载到表“databaseDataSet.orderList_出库”中。您可以根据需要移动或移除它。
+            this.orderList_出库TableAdapter.Fill(this.databaseDataSet.orderList_出库);
+            // TODO: 这行代码将数据加载到表“databaseDataSet.orderList”中。您可以根据需要移动或移除它。
+            this.orderListTableAdapter.FillByDate(this.databaseDataSet.orderList, DateTime.Now, DateTime.Now);
             // TODO: 这行代码将数据加载到表“databaseDataSet.Select_stockNum”中。您可以根据需要移动或移除它。
             this.select_stockNumTableAdapter.Fill(this.databaseDataSet.Select_stockNum);
             // TODO: 这行代码将数据加载到表“databaseDataSet.stockNum”中。您可以根据需要移动或移除它。
             this.stockNumTableAdapter.Fill(this.databaseDataSet.stockNum);
             // TODO: 这行代码将数据加载到表“databaseDataSet.recovered”中。您可以根据需要移动或移除它。
             this.recoveredTableAdapter.FillByNotDone(this.databaseDataSet.recovered);
+            dt_出库 = this.databaseDataSet.orderList.Clone();
+            dt_入库 = this.databaseDataSet.orderList.Clone();
 
             dateTimePicker1.Value = DateTime.Now;
+            dateTimePicker2.Value = DateTime.Now;
 
 
 
@@ -272,38 +285,34 @@ namespace AJ78
 
         private void button_stockNum_Save_Click(object sender, EventArgs e)
         {
+            sumUsable();
             dataGridView2.EndEdit();
             stockNumTableAdapter.Update(databaseDataSet);
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tabControl1.SelectedTab.Text != "")
+            if (tabControl1.SelectedTab.Text == "库存查看")
             {
-                
+                库存查看刷新();
+
+            }
+            else if (tabControl1.SelectedTab.Text == "退件处理")
+            {
+               this.recoveredTableAdapter.FillByNotDone(this.databaseDataSet.recovered);
             }
             this.select_stockNumTableAdapter.Fill(this.databaseDataSet.Select_stockNum);
-            // TODO: 这行代码将数据加载到表“databaseDataSet.stockNum”中。您可以根据需要移动或移除它。
-            this.stockNumTableAdapter.Fill(this.databaseDataSet.stockNum);
-            // TODO: 这行代码将数据加载到表“databaseDataSet.recovered”中。您可以根据需要移动或移除它。
-            this.recoveredTableAdapter.FillByNotDone(this.databaseDataSet.recovered);
+            
+            //this.stockNumTableAdapter.Fill(this.databaseDataSet.stockNum);
+            
+         
         }
         private void button3_Click(object sender, EventArgs e)
         {
             MessageBox.Show(rtn.Text);
              
         }
-        private void Output(string msg)
-        {
-            textBoxOutput.AppendText(msg);
-            textBoxOutput.SelectionStart = textBoxOutput.Text.Length;
-            textBoxOutput.ScrollToCaret();
-            textBoxOutput.Refresh();
-        }
-        private void OutputLine(string msg)
-        {
-            Output(msg + "\r\n");
-        }
+         
         public int oi1, oi2, oi3;
         public void ClearNode(TreeNode tn)
         {
@@ -374,8 +383,8 @@ namespace AJ78
             DataTable dt = dtCopy;
             //TreeNode rtn = new TreeNode("ROOT");
             //treeView1.Nodes.Add(rtn);
-            rtn = new TreeNode("ROOT [占用库存/可用库存/总库存]");
-
+           // rtn = new TreeNode("ROOT [占用库存/可用库存/总库存]");
+            rtn = new TreeNode("ROOT");
             foreach (DataRow dr in dt.Rows)
             {
                 string[] values = dr[1].ToString().Split(new char[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
@@ -445,7 +454,7 @@ namespace AJ78
             CaddNodes();
             ClearNode(rtn);
             SumNode(rtn);
-            //sumToPnode(rtn.Nodes[0]);
+            sumToPnode(rtn.Nodes[0]);
             treeView1.Nodes.Clear();
             treeView1.Nodes.Add(rtn);
         }
@@ -476,6 +485,278 @@ namespace AJ78
             {
                 dr[3] = (int)dr[4] - (int)dr[2];
             }
+            stockNumTableAdapter.Update(databaseDataSet);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {  
+             orderList_出库TableAdapter.Update(databaseDataSet); 
+            //for (int i = databaseDataSet.orderList_出库.Count-1; i == 0; i--)
+           foreach (DataRow dr in databaseDataSet.orderList_出库.Rows)
+            {
+               
+                 DataRow[] drs = databaseDataSet.stockNum.Select("商家编码 ='" + dr[2].ToString() + "'");
+                if (drs.Length == 1)
+                {
+                   
+                    drs[0][4] = (int)drs[0][4] - (int)dr[3];
+                    databaseDataSet.orderList.Rows.Add(null, dr[1], dr[2], dr[3], "出库"+dr[4]);
+                 
+                }
+               
+            }
+            
+                databaseDataSet.orderList_出库.Rows.Clear();
+            
+
+            orderList_出库TableAdapter.Update(databaseDataSet);
+            dataGridView_出库.Refresh();
+
+            stockNumTableAdapter.Update(databaseDataSet);
+            orderListTableAdapter.Update(databaseDataSet);
+
+        }
+
+        private void dataGridView_出库_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            //int i = dataGridView_出库.Rows.Count;
+            //if (i>1)
+            //{
+            //    dataGridView_出库.Rows[i - 1].Cells[1].Value = DateTime.Now;
+            //}
+           
+        }
+
+        private void dataGridView_出库_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            
+                dataGridView_出库.Rows[e.RowIndex].Cells[1].Value = DateTime.Now;
+             
+        }
+
+        private void button_出库_Click(object sender, EventArgs e)
+        {
+
+            orderList_出库TableAdapter.Update(databaseDataSet);
+            //for (int i = databaseDataSet.orderList_出库.Count-1; i == 0; i--)
+            foreach (DataRow dr in databaseDataSet.orderList_出库.Rows)
+            {
+
+                DataRow[] drs = databaseDataSet.stockNum.Select("商家编码 ='" + dr[2].ToString() + "'");
+                if (drs.Length == 1)
+                {
+
+                    drs[0][4] = (int)drs[0][4] - (int)dr[3];
+                    databaseDataSet.orderList.Rows.Add(null, dr[1], dr[2], dr[3], "出库" + dr[4]);
+
+                }
+
+            }
+
+            databaseDataSet.orderList_出库.Rows.Clear();
+
+
+            orderList_出库TableAdapter.Update(databaseDataSet);
+            dataGridView_出库.Refresh();
+
+            stockNumTableAdapter.Update(databaseDataSet);
+            orderListTableAdapter.Update(databaseDataSet);
+        }
+
+        private void button_出库单保存_Click(object sender, EventArgs e)
+        {
+            orderList_出库TableAdapter.Update(databaseDataSet);
+        }
+
+        private void button_入库单保存_Click(object sender, EventArgs e)
+        {
+            orderList_入库TableAdapter.Update(databaseDataSet);
+        }
+
+        private void button_入库_Click(object sender, EventArgs e)
+        {
+            orderList_入库TableAdapter.Update(databaseDataSet);
+             
+            foreach (DataRow dr in databaseDataSet.orderList_入库.Rows)
+            {
+
+                DataRow[] drs = databaseDataSet.stockNum.Select("商家编码 ='" + dr[2].ToString() + "'");
+                if (drs.Length == 1)
+                {
+
+                    drs[0][4] = (int)drs[0][4] + (int)dr[3];
+                    databaseDataSet.orderList.Rows.Add(null, dr[1], dr[2], dr[3], "入库" + dr[4]);
+
+                }
+
+            }
+
+            databaseDataSet.orderList_入库.Rows.Clear();
+
+
+            orderList_入库TableAdapter.Update(databaseDataSet);
+            dataGridView_入库.Refresh();
+
+            stockNumTableAdapter.Update(databaseDataSet);
+            orderListTableAdapter.Update(databaseDataSet);
+        }
+
+        private void button_库存查看刷新_Click(object sender, EventArgs e)
+        {
+
+        }
+        public void 库存查看刷新()
+        {
+            sumUsable();
+            treeView1.Nodes.Clear();
+            this.select_stockNumTableAdapter.Fill(this.databaseDataSet.Select_stockNum);
+
+            this.stockNumTableAdapter.Fill(this.databaseDataSet.stockNum);
+
+            this.orderListTableAdapter.FillByDate(this.databaseDataSet.orderList, dateTimePicker2.Value.Date, dateTimePicker2.Value.Date.AddDays(1));
+
+            CaddNodes();
+            ClearNode(rtn);
+            SumNode(rtn);
+            // sumToPnode(rtn.Nodes[0]);
+
+            treeView1.Nodes.Add(rtn);
+            treeView1.Nodes[0].Expand();
+        }
+
+        private void dataGridView_入库_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            dataGridView_入库.Rows[e.RowIndex].Cells[1].Value = DateTime.Now;
+        }
+
+        private void button_退件入库_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count >0)
+            {
+                foreach (DataGridViewRow dgvr in dataGridView1.SelectedRows)
+                {
+                    DataGridViewCheckBoxCell checkCell = (DataGridViewCheckBoxCell)dgvr.Cells[8];
+                    Boolean flag = Convert.ToBoolean(checkCell.Value);
+                    if (flag != true)     //查找被选择的数据行  
+                    {
+                        checkCell.Value = true;
+                        dgvr.Cells[8].Value = true;
+                      DataRow[] drs = databaseDataSet.stockNum.Select("商家编码 ='" + dgvr.Cells[3].Value.ToString() + "'"); 
+                    if (drs.Length == 1)
+                    {
+
+                        drs[0][4] = (int)drs[0][4] + (int)dgvr.Cells[4].Value;
+                        databaseDataSet.orderList.Rows.Add(null, DateTime.Now, dgvr.Cells[3].Value, dgvr.Cells[4].Value, "入库 退件单号" + dgvr.Cells[2].Value);
+
+                            dataGridView1.EndEdit();
+                        }
+                    }
+               }
+                
+            }
+            else
+            {
+                MessageBox.Show("选择入库的记录");
+            }
+
+            dataGridView1.CurrentCell = dataGridView1.Rows[0].Cells[0];
+            dataGridView1.EndEdit();
+            recoveredTableAdapter.Update(databaseDataSet);
+            stockNumTableAdapter.Update(databaseDataSet);
+            orderListTableAdapter.Update(databaseDataSet);
+            库存查看刷新();
+        }
+
+        private void button_撤销出入库_Click(object sender, EventArgs e)
+        {
+            if (dataGridView_orderList.SelectedRows.Count > 0)
+            {
+                foreach (DataGridViewRow dgvr in dataGridView_orderList.SelectedRows)
+                {
+                    DialogResult r1 = MessageBox.Show("确定撤销  [" +
+                        dgvr.Cells[2].Value.ToString().Trim() + " "+
+                        dgvr.Cells[4].Value.ToString().Substring(0, 2) + " " +
+                        dgvr.Cells[3].Value+"]", "标题", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                    if (r1.ToString() == "Yes")
+                    {
+                        DataRow[] drs = databaseDataSet.stockNum.Select("商家编码 ='" + dgvr.Cells[2].Value.ToString() + "'");
+                        if (drs.Length == 1)
+                        {
+                            if (dgvr.Cells[4].Value.ToString().StartsWith("出库"))
+                            {
+                               drs[0][4] = (int)drs[0][4] + (int)dgvr.Cells[3].Value;
+                                databaseDataSet.orderList_出库.Rows.Add(null, dgvr.Cells[1].Value, dgvr.Cells[2].Value, dgvr.Cells[3].Value,dgvr.Cells[4].Value);
+                            }
+                            else if (dgvr.Cells[4].Value.ToString().StartsWith("入库"))
+                            {
+                               drs[0][4] = (int)drs[0][4] - (int)dgvr.Cells[3].Value;
+                                databaseDataSet.orderList_出库.Rows.Add(null, dgvr.Cells[1].Value, dgvr.Cells[2].Value, dgvr.Cells[3].Value, dgvr.Cells[4].Value);
+                            }
+                            else
+                            {
+                                MessageBox.Show("撤销失败！");
+                            }
+
+                            //  databaseDataSet.orderList.Rows.Add(null, DateTime.Now, dgvr.Cells[3].Value, dgvr.Cells[4].Value, "入库 退件单号" + dgvr.Cells[2].Value);
+                            dataGridView_orderList.Rows.Remove(dgvr);
+
+
+                        }
+                    } 
+
+
+
+
+
+
+                }
+               
+                stockNumTableAdapter.Update(databaseDataSet);
+                orderList_出库TableAdapter.Update(databaseDataSet);
+                orderList_入库TableAdapter.Update(databaseDataSet);
+                orderListTableAdapter.Update(databaseDataSet);
+            }
+            else
+            {
+                MessageBox.Show("选择撤销的记录");
+            }
+            库存查看刷新();
+        }
+
+        private void button_选中出库_Click(object sender, EventArgs e)
+        {
+            //orderList_出库TableAdapter.Update(databaseDataSet);
+            //if (dataGridView_出库.SelectedRows.Count  > 0)
+            //{
+            //    foreach (DataGridViewRow dgvr in dataGridView_出库.SelectedRows)
+            //    {
+
+            //        DataRow[] drs = databaseDataSet.stockNum.Select("商家编码 ='" + dr[2].ToString() + "'");
+            //        if (drs.Length == 1)
+            //        {
+
+            //            drs[0][4] = (int)drs[0][4] - (int)dr[3];
+            //            databaseDataSet.orderList.Rows.Add(null, dr[1], dr[2], dr[3], "出库" + dr[4]);
+
+            //        }
+
+            //    }
+
+              
+            //    databaseDataSet.orderList_出库.Rows.Clear();
+
+
+            //    orderList_出库TableAdapter.Update(databaseDataSet);
+            //    dataGridView_出库.Refresh();
+
+            //    stockNumTableAdapter.Update(databaseDataSet);
+            //    orderListTableAdapter.Update(databaseDataSet);
+            //}
+        }
+
+        private void button_orderList_Click(object sender, EventArgs e)
+        {
+            this.orderListTableAdapter.FillByDate(this.databaseDataSet.orderList, dateTimePicker2.Value.Date, dateTimePicker2.Value.Date.AddDays(1));
         }
 
         public class CustomDGVComboBoxCell : DataGridViewComboBoxCell

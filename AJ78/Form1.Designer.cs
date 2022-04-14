@@ -34,7 +34,7 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.button_add = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_退件入库 = new System.Windows.Forms.Button();
             this.button_SDate = new System.Windows.Forms.Button();
             this.button_SCode = new System.Windows.Forms.Button();
             this.textBox_code = new System.Windows.Forms.TextBox();
@@ -57,10 +57,10 @@
             this.备注DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.图片DataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.处理DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.入库DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.recoveredBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage_商品列表 = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.button_sumUsable = new System.Windows.Forms.Button();
             this.button_stockNum_Save = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,21 +72,51 @@
             this.隐藏DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.stockNumBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage_库存查看 = new System.Windows.Forms.TabPage();
-            this.button5 = new System.Windows.Forms.Button();
-            this.textBoxOutput = new System.Windows.Forms.RichTextBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.splitContainer5 = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
-            this.recoveredTableAdapter = new AJ78.DatabaseDataSetTableAdapters.recoveredTableAdapter();
-            this.stockNumTableAdapter = new AJ78.DatabaseDataSetTableAdapters.stockNumTableAdapter();
-            this.select_stockNumTableAdapter = new AJ78.DatabaseDataSetTableAdapters.Select_stockNumTableAdapter();
+            this.splitContainer6 = new System.Windows.Forms.SplitContainer();
+            this.button_撤销出入库 = new System.Windows.Forms.Button();
+            this.button_库存查看刷新 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button_orderList = new System.Windows.Forms.Button();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dataGridView_orderList = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.日期DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.商家编码DataGridViewTextBoxColumn1 = new AJ78.Form1.CustomDGVComboBoxColumn();
+            this.数量DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.备注DataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage_出库 = new System.Windows.Forms.TabPage();
+            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.button_出库单保存 = new System.Windows.Forms.Button();
+            this.button_出库 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.dataGridView_出库 = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.日期DataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.商家编码DataGridViewTextBoxColumn2 = new AJ78.Form1.CustomDGVComboBoxColumn();
+            this.数量DataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.备注DataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderList出库BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage_入库 = new System.Windows.Forms.TabPage();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.button_入库 = new System.Windows.Forms.Button();
+            this.button_入库单保存 = new System.Windows.Forms.Button();
             this.dataGridView_入库 = new System.Windows.Forms.DataGridView();
-            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
-            this.dataGridView_出库 = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.日期DataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.商家编码DataGridViewTextBoxColumn3 = new AJ78.Form1.CustomDGVComboBoxColumn();
+            this.数量DataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.备注DataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderList入库BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.stockNumTableAdapter = new AJ78.DatabaseDataSetTableAdapters.stockNumTableAdapter();
+            this.select_stockNumTableAdapter = new AJ78.DatabaseDataSetTableAdapters.Select_stockNumTableAdapter();
+            this.orderListTableAdapter = new AJ78.DatabaseDataSetTableAdapters.orderListTableAdapter();
+            this.recoveredTableAdapter = new AJ78.DatabaseDataSetTableAdapters.recoveredTableAdapter();
+            this.orderList_出库TableAdapter = new AJ78.DatabaseDataSetTableAdapters.orderList_出库TableAdapter();
+            this.orderList_入库TableAdapter = new AJ78.DatabaseDataSetTableAdapters.orderList_入库TableAdapter();
+            this.button_选中出库 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage_退件处理.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -106,16 +136,30 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockNumBindingSource)).BeginInit();
             this.tabPage_库存查看.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).BeginInit();
+            this.splitContainer5.Panel1.SuspendLayout();
+            this.splitContainer5.Panel2.SuspendLayout();
+            this.splitContainer5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer6)).BeginInit();
+            this.splitContainer6.Panel1.SuspendLayout();
+            this.splitContainer6.Panel2.SuspendLayout();
+            this.splitContainer6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_orderList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderListBindingSource)).BeginInit();
             this.tabPage_出库.SuspendLayout();
-            this.tabPage_入库.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
-            this.splitContainer3.Panel2.SuspendLayout();
-            this.splitContainer3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_入库)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
+            this.splitContainer4.Panel1.SuspendLayout();
             this.splitContainer4.Panel2.SuspendLayout();
             this.splitContainer4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_出库)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderList出库BindingSource)).BeginInit();
+            this.tabPage_入库.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
+            this.splitContainer3.Panel1.SuspendLayout();
+            this.splitContainer3.Panel2.SuspendLayout();
+            this.splitContainer3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_入库)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderList入库BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -129,7 +173,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(800, 450);
+            this.tabControl1.Size = new System.Drawing.Size(940, 450);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -139,7 +183,7 @@
             this.tabPage_退件处理.Location = new System.Drawing.Point(4, 22);
             this.tabPage_退件处理.Name = "tabPage_退件处理";
             this.tabPage_退件处理.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_退件处理.Size = new System.Drawing.Size(792, 424);
+            this.tabPage_退件处理.Size = new System.Drawing.Size(932, 424);
             this.tabPage_退件处理.TabIndex = 0;
             this.tabPage_退件处理.Text = "退件处理";
             this.tabPage_退件处理.UseVisualStyleBackColor = true;
@@ -147,6 +191,7 @@
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer1.Location = new System.Drawing.Point(3, 3);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -155,7 +200,7 @@
             // 
             this.splitContainer1.Panel1.Controls.Add(this.button_add);
             this.splitContainer1.Panel1.Controls.Add(this.button2);
-            this.splitContainer1.Panel1.Controls.Add(this.button1);
+            this.splitContainer1.Panel1.Controls.Add(this.button_退件入库);
             this.splitContainer1.Panel1.Controls.Add(this.button_SDate);
             this.splitContainer1.Panel1.Controls.Add(this.button_SCode);
             this.splitContainer1.Panel1.Controls.Add(this.textBox_code);
@@ -171,7 +216,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
-            this.splitContainer1.Size = new System.Drawing.Size(786, 418);
+            this.splitContainer1.Size = new System.Drawing.Size(926, 418);
             this.splitContainer1.SplitterDistance = 123;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -187,7 +232,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(383, 44);
+            this.button2.Location = new System.Drawing.Point(388, 83);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 17;
@@ -196,15 +241,15 @@
             this.button2.Visible = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // button_退件入库
             // 
-            this.button1.Location = new System.Drawing.Point(302, 43);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button_退件入库.Location = new System.Drawing.Point(469, 56);
+            this.button_退件入库.Name = "button_退件入库";
+            this.button_退件入库.Size = new System.Drawing.Size(75, 23);
+            this.button_退件入库.TabIndex = 16;
+            this.button_退件入库.Text = "退件入库";
+            this.button_退件入库.UseVisualStyleBackColor = true;
+            this.button_退件入库.Click += new System.EventHandler(this.button_退件入库_Click);
             // 
             // button_SDate
             // 
@@ -269,7 +314,7 @@
             // 
             // button_get
             // 
-            this.button_get.Location = new System.Drawing.Point(79, 90);
+            this.button_get.Location = new System.Drawing.Point(104, 87);
             this.button_get.Name = "button_get";
             this.button_get.Size = new System.Drawing.Size(75, 23);
             this.button_get.TabIndex = 6;
@@ -298,9 +343,10 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(638, 3);
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pictureBox1.Location = new System.Drawing.Point(783, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(143, 117);
+            this.pictureBox1.Size = new System.Drawing.Size(143, 123);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -329,7 +375,8 @@
             this.数量DataGridViewTextBoxColumn,
             this.备注DataGridViewTextBoxColumn,
             this.图片DataGridViewImageColumn,
-            this.处理DataGridViewTextBoxColumn});
+            this.处理DataGridViewTextBoxColumn,
+            this.入库DataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.recoveredBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
@@ -337,7 +384,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(786, 291);
+            this.dataGridView1.Size = new System.Drawing.Size(926, 291);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dataGridView1_RowStateChanged);
@@ -348,7 +395,7 @@
             this.idDataGridViewTextBoxColumn.HeaderText = "Id";
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Width = 30;
+            this.idDataGridViewTextBoxColumn.Width = 60;
             // 
             // 日期DataGridViewTextBoxColumn
             // 
@@ -371,6 +418,7 @@
             this.型号DataGridViewTextBoxColumn.Name = "型号DataGridViewTextBoxColumn";
             this.型号DataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.型号DataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.型号DataGridViewTextBoxColumn.Width = 120;
             // 
             // selectstockNumBindingSource
             // 
@@ -400,7 +448,6 @@
             // 
             this.图片DataGridViewImageColumn.DataPropertyName = "图片";
             this.图片DataGridViewImageColumn.HeaderText = "图片";
-            this.图片DataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.图片DataGridViewImageColumn.Name = "图片DataGridViewImageColumn";
             this.图片DataGridViewImageColumn.Width = 60;
             // 
@@ -413,6 +460,17 @@
             this.处理DataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.处理DataGridViewTextBoxColumn.Width = 60;
             // 
+            // 入库DataGridViewTextBoxColumn
+            // 
+            this.入库DataGridViewTextBoxColumn.DataPropertyName = "入库";
+            this.入库DataGridViewTextBoxColumn.FalseValue = "0";
+            this.入库DataGridViewTextBoxColumn.HeaderText = "入库";
+            this.入库DataGridViewTextBoxColumn.Name = "入库DataGridViewTextBoxColumn";
+            this.入库DataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.入库DataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.入库DataGridViewTextBoxColumn.TrueValue = "1";
+            this.入库DataGridViewTextBoxColumn.Width = 60;
+            // 
             // recoveredBindingSource
             // 
             this.recoveredBindingSource.DataMember = "recovered";
@@ -424,7 +482,7 @@
             this.tabPage_商品列表.Location = new System.Drawing.Point(4, 22);
             this.tabPage_商品列表.Name = "tabPage_商品列表";
             this.tabPage_商品列表.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_商品列表.Size = new System.Drawing.Size(792, 424);
+            this.tabPage_商品列表.Size = new System.Drawing.Size(932, 424);
             this.tabPage_商品列表.TabIndex = 1;
             this.tabPage_商品列表.Text = "商品列表";
             this.tabPage_商品列表.UseVisualStyleBackColor = true;
@@ -432,31 +490,21 @@
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer2.Location = new System.Drawing.Point(3, 3);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
             // splitContainer2.Panel1
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.button_sumUsable);
             this.splitContainer2.Panel1.Controls.Add(this.button_stockNum_Save);
             // 
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.dataGridView2);
-            this.splitContainer2.Size = new System.Drawing.Size(786, 418);
+            this.splitContainer2.Size = new System.Drawing.Size(926, 418);
             this.splitContainer2.SplitterDistance = 108;
             this.splitContainer2.TabIndex = 1;
-            // 
-            // button_sumUsable
-            // 
-            this.button_sumUsable.Location = new System.Drawing.Point(594, 69);
-            this.button_sumUsable.Name = "button_sumUsable";
-            this.button_sumUsable.Size = new System.Drawing.Size(75, 23);
-            this.button_sumUsable.TabIndex = 1;
-            this.button_sumUsable.Text = "合计可用";
-            this.button_sumUsable.UseVisualStyleBackColor = true;
-            this.button_sumUsable.Click += new System.EventHandler(this.button_sumUsable_Click);
             // 
             // button_stockNum_Save
             // 
@@ -485,7 +533,7 @@
             this.dataGridView2.Location = new System.Drawing.Point(0, 0);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowTemplate.Height = 23;
-            this.dataGridView2.Size = new System.Drawing.Size(786, 306);
+            this.dataGridView2.Size = new System.Drawing.Size(926, 306);
             this.dataGridView2.TabIndex = 0;
             // 
             // idDataGridViewTextBoxColumn1
@@ -494,12 +542,14 @@
             this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
             this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
             this.idDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn1.Width = 60;
             // 
             // 商家编码DataGridViewTextBoxColumn
             // 
             this.商家编码DataGridViewTextBoxColumn.DataPropertyName = "商家编码";
             this.商家编码DataGridViewTextBoxColumn.HeaderText = "商家编码";
             this.商家编码DataGridViewTextBoxColumn.Name = "商家编码DataGridViewTextBoxColumn";
+            this.商家编码DataGridViewTextBoxColumn.Width = 120;
             // 
             // 占用库存DataGridViewTextBoxColumn
             // 
@@ -521,6 +571,7 @@
             // 
             // 备注DataGridViewTextBoxColumn1
             // 
+            this.备注DataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.备注DataGridViewTextBoxColumn1.DataPropertyName = "备注";
             this.备注DataGridViewTextBoxColumn1.HeaderText = "备注";
             this.备注DataGridViewTextBoxColumn1.Name = "备注DataGridViewTextBoxColumn1";
@@ -540,102 +591,312 @@
             // 
             // tabPage_库存查看
             // 
-            this.tabPage_库存查看.Controls.Add(this.button5);
-            this.tabPage_库存查看.Controls.Add(this.textBoxOutput);
-            this.tabPage_库存查看.Controls.Add(this.button4);
-            this.tabPage_库存查看.Controls.Add(this.textBox1);
-            this.tabPage_库存查看.Controls.Add(this.button3);
-            this.tabPage_库存查看.Controls.Add(this.treeView1);
+            this.tabPage_库存查看.Controls.Add(this.splitContainer5);
             this.tabPage_库存查看.Location = new System.Drawing.Point(4, 22);
             this.tabPage_库存查看.Name = "tabPage_库存查看";
             this.tabPage_库存查看.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_库存查看.Size = new System.Drawing.Size(792, 424);
+            this.tabPage_库存查看.Size = new System.Drawing.Size(932, 424);
             this.tabPage_库存查看.TabIndex = 2;
             this.tabPage_库存查看.Text = "库存查看";
             this.tabPage_库存查看.UseVisualStyleBackColor = true;
             // 
+            // splitContainer5
+            // 
+            this.splitContainer5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer5.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer5.Name = "splitContainer5";
+            // 
+            // splitContainer5.Panel1
+            // 
+            this.splitContainer5.Panel1.Controls.Add(this.treeView1);
+            // 
+            // splitContainer5.Panel2
+            // 
+            this.splitContainer5.Panel2.Controls.Add(this.splitContainer6);
+            this.splitContainer5.Size = new System.Drawing.Size(926, 418);
+            this.splitContainer5.SplitterDistance = 270;
+            this.splitContainer5.SplitterWidth = 10;
+            this.splitContainer5.TabIndex = 10;
+            // 
+            // treeView1
+            // 
+            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeView1.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.treeView1.Indent = 25;
+            this.treeView1.Location = new System.Drawing.Point(0, 0);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(270, 418);
+            this.treeView1.TabIndex = 0;
+            // 
+            // splitContainer6
+            // 
+            this.splitContainer6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer6.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer6.Name = "splitContainer6";
+            this.splitContainer6.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer6.Panel1
+            // 
+            this.splitContainer6.Panel1.Controls.Add(this.button_撤销出入库);
+            this.splitContainer6.Panel1.Controls.Add(this.button_库存查看刷新);
+            this.splitContainer6.Panel1.Controls.Add(this.button5);
+            this.splitContainer6.Panel1.Controls.Add(this.button_orderList);
+            this.splitContainer6.Panel1.Controls.Add(this.dateTimePicker2);
+            // 
+            // splitContainer6.Panel2
+            // 
+            this.splitContainer6.Panel2.Controls.Add(this.dataGridView_orderList);
+            this.splitContainer6.Size = new System.Drawing.Size(646, 418);
+            this.splitContainer6.SplitterDistance = 60;
+            this.splitContainer6.TabIndex = 0;
+            // 
+            // button_撤销出入库
+            // 
+            this.button_撤销出入库.Location = new System.Drawing.Point(407, 5);
+            this.button_撤销出入库.Name = "button_撤销出入库";
+            this.button_撤销出入库.Size = new System.Drawing.Size(75, 23);
+            this.button_撤销出入库.TabIndex = 11;
+            this.button_撤销出入库.Text = "撤销出入库";
+            this.button_撤销出入库.UseVisualStyleBackColor = true;
+            this.button_撤销出入库.Click += new System.EventHandler(this.button_撤销出入库_Click);
+            // 
+            // button_库存查看刷新
+            // 
+            this.button_库存查看刷新.Location = new System.Drawing.Point(326, 6);
+            this.button_库存查看刷新.Name = "button_库存查看刷新";
+            this.button_库存查看刷新.Size = new System.Drawing.Size(75, 23);
+            this.button_库存查看刷新.TabIndex = 10;
+            this.button_库存查看刷新.Text = "刷新";
+            this.button_库存查看刷新.UseVisualStyleBackColor = true;
+            this.button_库存查看刷新.Click += new System.EventHandler(this.button_库存查看刷新_Click);
+            // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(614, 34);
+            this.button5.Location = new System.Drawing.Point(566, 6);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 6;
             this.button5.Text = "button5";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Visible = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // textBoxOutput
+            // button_orderList
             // 
-            this.textBoxOutput.Location = new System.Drawing.Point(565, 112);
-            this.textBoxOutput.Name = "textBoxOutput";
-            this.textBoxOutput.Size = new System.Drawing.Size(202, 278);
-            this.textBoxOutput.TabIndex = 5;
-            this.textBoxOutput.Text = "";
+            this.button_orderList.Location = new System.Drawing.Point(222, 6);
+            this.button_orderList.Name = "button_orderList";
+            this.button_orderList.Size = new System.Drawing.Size(98, 23);
+            this.button_orderList.TabIndex = 9;
+            this.button_orderList.Text = "查看指定日期";
+            this.button_orderList.UseVisualStyleBackColor = true;
+            this.button_orderList.Click += new System.EventHandler(this.button_orderList_Click);
             // 
-            // button4
+            // dateTimePicker2
             // 
-            this.button4.Location = new System.Drawing.Point(199, 7);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.dateTimePicker2.Location = new System.Drawing.Point(6, 5);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 21);
+            this.dateTimePicker2.TabIndex = 8;
             // 
-            // textBox1
+            // dataGridView_orderList
             // 
-            this.textBox1.Location = new System.Drawing.Point(21, 7);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(172, 21);
-            this.textBox1.TabIndex = 2;
+            this.dataGridView_orderList.AllowUserToAddRows = false;
+            this.dataGridView_orderList.AllowUserToDeleteRows = false;
+            this.dataGridView_orderList.AutoGenerateColumns = false;
+            this.dataGridView_orderList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_orderList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn2,
+            this.日期DataGridViewTextBoxColumn1,
+            this.商家编码DataGridViewTextBoxColumn1,
+            this.数量DataGridViewTextBoxColumn1,
+            this.备注DataGridViewTextBoxColumn2});
+            this.dataGridView_orderList.DataSource = this.orderListBindingSource;
+            this.dataGridView_orderList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView_orderList.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView_orderList.Name = "dataGridView_orderList";
+            this.dataGridView_orderList.ReadOnly = true;
+            this.dataGridView_orderList.RowTemplate.Height = 23;
+            this.dataGridView_orderList.Size = new System.Drawing.Size(646, 354);
+            this.dataGridView_orderList.TabIndex = 7;
             // 
-            // button3
+            // idDataGridViewTextBoxColumn2
             // 
-            this.button3.Location = new System.Drawing.Point(456, 34);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.idDataGridViewTextBoxColumn2.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn2.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn2.Name = "idDataGridViewTextBoxColumn2";
+            this.idDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn2.Width = 30;
             // 
-            // treeView1
+            // 日期DataGridViewTextBoxColumn1
             // 
-            this.treeView1.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.treeView1.Indent = 30;
-            this.treeView1.Location = new System.Drawing.Point(21, 34);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(329, 382);
-            this.treeView1.TabIndex = 0;
+            this.日期DataGridViewTextBoxColumn1.DataPropertyName = "日期";
+            this.日期DataGridViewTextBoxColumn1.HeaderText = "日期";
+            this.日期DataGridViewTextBoxColumn1.Name = "日期DataGridViewTextBoxColumn1";
+            this.日期DataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // recoveredTableAdapter
+            // 商家编码DataGridViewTextBoxColumn1
             // 
-            this.recoveredTableAdapter.ClearBeforeFill = true;
+            this.商家编码DataGridViewTextBoxColumn1.DataPropertyName = "商家编码";
+            this.商家编码DataGridViewTextBoxColumn1.DataSource = this.selectstockNumBindingSource;
+            this.商家编码DataGridViewTextBoxColumn1.DisplayMember = "商家编码";
+            this.商家编码DataGridViewTextBoxColumn1.HeaderText = "商家编码";
+            this.商家编码DataGridViewTextBoxColumn1.Name = "商家编码DataGridViewTextBoxColumn1";
+            this.商家编码DataGridViewTextBoxColumn1.ReadOnly = true;
+            this.商家编码DataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.商家编码DataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.商家编码DataGridViewTextBoxColumn1.Width = 120;
             // 
-            // stockNumTableAdapter
+            // 数量DataGridViewTextBoxColumn1
             // 
-            this.stockNumTableAdapter.ClearBeforeFill = true;
+            this.数量DataGridViewTextBoxColumn1.DataPropertyName = "数量";
+            this.数量DataGridViewTextBoxColumn1.HeaderText = "数量";
+            this.数量DataGridViewTextBoxColumn1.Name = "数量DataGridViewTextBoxColumn1";
+            this.数量DataGridViewTextBoxColumn1.ReadOnly = true;
+            this.数量DataGridViewTextBoxColumn1.Width = 60;
             // 
-            // select_stockNumTableAdapter
+            // 备注DataGridViewTextBoxColumn2
             // 
-            this.select_stockNumTableAdapter.ClearBeforeFill = true;
+            this.备注DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.备注DataGridViewTextBoxColumn2.DataPropertyName = "备注";
+            this.备注DataGridViewTextBoxColumn2.HeaderText = "备注";
+            this.备注DataGridViewTextBoxColumn2.Name = "备注DataGridViewTextBoxColumn2";
+            this.备注DataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // orderListBindingSource
+            // 
+            this.orderListBindingSource.DataMember = "orderList";
+            this.orderListBindingSource.DataSource = this.databaseDataSet;
             // 
             // tabPage_出库
             // 
             this.tabPage_出库.Controls.Add(this.splitContainer4);
             this.tabPage_出库.Location = new System.Drawing.Point(4, 22);
             this.tabPage_出库.Name = "tabPage_出库";
-            this.tabPage_出库.Size = new System.Drawing.Size(792, 424);
+            this.tabPage_出库.Size = new System.Drawing.Size(932, 424);
             this.tabPage_出库.TabIndex = 3;
             this.tabPage_出库.Text = "出库 ";
             this.tabPage_出库.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer4
+            // 
+            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer4.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer4.Name = "splitContainer4";
+            this.splitContainer4.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer4.Panel1
+            // 
+            this.splitContainer4.Panel1.Controls.Add(this.button_选中出库);
+            this.splitContainer4.Panel1.Controls.Add(this.button_出库单保存);
+            this.splitContainer4.Panel1.Controls.Add(this.button_出库);
+            this.splitContainer4.Panel1.Controls.Add(this.button6);
+            // 
+            // splitContainer4.Panel2
+            // 
+            this.splitContainer4.Panel2.Controls.Add(this.dataGridView_出库);
+            this.splitContainer4.Size = new System.Drawing.Size(932, 424);
+            this.splitContainer4.SplitterDistance = 101;
+            this.splitContainer4.TabIndex = 0;
+            // 
+            // button_出库单保存
+            // 
+            this.button_出库单保存.Location = new System.Drawing.Point(263, 67);
+            this.button_出库单保存.Name = "button_出库单保存";
+            this.button_出库单保存.Size = new System.Drawing.Size(75, 23);
+            this.button_出库单保存.TabIndex = 2;
+            this.button_出库单保存.Text = "出库单保存";
+            this.button_出库单保存.UseVisualStyleBackColor = true;
+            this.button_出库单保存.Click += new System.EventHandler(this.button_出库单保存_Click);
+            // 
+            // button_出库
+            // 
+            this.button_出库.Location = new System.Drawing.Point(425, 67);
+            this.button_出库.Name = "button_出库";
+            this.button_出库.Size = new System.Drawing.Size(75, 23);
+            this.button_出库.TabIndex = 1;
+            this.button_出库.Text = "全部出库";
+            this.button_出库.UseVisualStyleBackColor = true;
+            this.button_出库.Click += new System.EventHandler(this.button_出库_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(709, 62);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 0;
+            this.button6.Text = "button6";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // dataGridView_出库
+            // 
+            this.dataGridView_出库.AutoGenerateColumns = false;
+            this.dataGridView_出库.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_出库.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn3,
+            this.日期DataGridViewTextBoxColumn2,
+            this.商家编码DataGridViewTextBoxColumn2,
+            this.数量DataGridViewTextBoxColumn2,
+            this.备注DataGridViewTextBoxColumn3});
+            this.dataGridView_出库.DataSource = this.orderList出库BindingSource;
+            this.dataGridView_出库.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView_出库.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView_出库.Name = "dataGridView_出库";
+            this.dataGridView_出库.RowTemplate.Height = 23;
+            this.dataGridView_出库.Size = new System.Drawing.Size(932, 319);
+            this.dataGridView_出库.TabIndex = 0;
+            this.dataGridView_出库.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_出库_CellBeginEdit);
+            this.dataGridView_出库.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView_出库_RowsAdded);
+            // 
+            // idDataGridViewTextBoxColumn3
+            // 
+            this.idDataGridViewTextBoxColumn3.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn3.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn3.Name = "idDataGridViewTextBoxColumn3";
+            this.idDataGridViewTextBoxColumn3.Width = 60;
+            // 
+            // 日期DataGridViewTextBoxColumn2
+            // 
+            this.日期DataGridViewTextBoxColumn2.DataPropertyName = "日期";
+            this.日期DataGridViewTextBoxColumn2.HeaderText = "日期";
+            this.日期DataGridViewTextBoxColumn2.Name = "日期DataGridViewTextBoxColumn2";
+            // 
+            // 商家编码DataGridViewTextBoxColumn2
+            // 
+            this.商家编码DataGridViewTextBoxColumn2.DataPropertyName = "商家编码";
+            this.商家编码DataGridViewTextBoxColumn2.DataSource = this.selectstockNumBindingSource;
+            this.商家编码DataGridViewTextBoxColumn2.DisplayMember = "商家编码";
+            this.商家编码DataGridViewTextBoxColumn2.HeaderText = "商家编码";
+            this.商家编码DataGridViewTextBoxColumn2.Name = "商家编码DataGridViewTextBoxColumn2";
+            this.商家编码DataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.商家编码DataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.商家编码DataGridViewTextBoxColumn2.Width = 120;
+            // 
+            // 数量DataGridViewTextBoxColumn2
+            // 
+            this.数量DataGridViewTextBoxColumn2.DataPropertyName = "数量";
+            this.数量DataGridViewTextBoxColumn2.HeaderText = "数量";
+            this.数量DataGridViewTextBoxColumn2.Name = "数量DataGridViewTextBoxColumn2";
+            this.数量DataGridViewTextBoxColumn2.Width = 60;
+            // 
+            // 备注DataGridViewTextBoxColumn3
+            // 
+            this.备注DataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.备注DataGridViewTextBoxColumn3.DataPropertyName = "备注";
+            this.备注DataGridViewTextBoxColumn3.HeaderText = "备注";
+            this.备注DataGridViewTextBoxColumn3.Name = "备注DataGridViewTextBoxColumn3";
+            // 
+            // orderList出库BindingSource
+            // 
+            this.orderList出库BindingSource.DataMember = "orderList_出库";
+            this.orderList出库BindingSource.DataSource = this.databaseDataSet;
             // 
             // tabPage_入库
             // 
             this.tabPage_入库.Controls.Add(this.splitContainer3);
             this.tabPage_入库.Location = new System.Drawing.Point(4, 22);
             this.tabPage_入库.Name = "tabPage_入库";
-            this.tabPage_入库.Size = new System.Drawing.Size(792, 424);
+            this.tabPage_入库.Size = new System.Drawing.Size(932, 424);
             this.tabPage_入库.TabIndex = 4;
             this.tabPage_入库.Text = "入库";
             this.tabPage_入库.UseVisualStyleBackColor = true;
@@ -647,51 +908,140 @@
             this.splitContainer3.Name = "splitContainer3";
             this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
+            // splitContainer3.Panel1
+            // 
+            this.splitContainer3.Panel1.Controls.Add(this.button_入库);
+            this.splitContainer3.Panel1.Controls.Add(this.button_入库单保存);
+            // 
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.dataGridView_入库);
-            this.splitContainer3.Size = new System.Drawing.Size(792, 424);
+            this.splitContainer3.Size = new System.Drawing.Size(932, 424);
             this.splitContainer3.SplitterDistance = 95;
             this.splitContainer3.TabIndex = 0;
             // 
+            // button_入库
+            // 
+            this.button_入库.Location = new System.Drawing.Point(434, 58);
+            this.button_入库.Name = "button_入库";
+            this.button_入库.Size = new System.Drawing.Size(75, 23);
+            this.button_入库.TabIndex = 1;
+            this.button_入库.Text = "入库";
+            this.button_入库.UseVisualStyleBackColor = true;
+            this.button_入库.Click += new System.EventHandler(this.button_入库_Click);
+            // 
+            // button_入库单保存
+            // 
+            this.button_入库单保存.Location = new System.Drawing.Point(353, 58);
+            this.button_入库单保存.Name = "button_入库单保存";
+            this.button_入库单保存.Size = new System.Drawing.Size(75, 23);
+            this.button_入库单保存.TabIndex = 0;
+            this.button_入库单保存.Text = "入库单保存";
+            this.button_入库单保存.UseVisualStyleBackColor = true;
+            this.button_入库单保存.Click += new System.EventHandler(this.button_入库单保存_Click);
+            // 
             // dataGridView_入库
             // 
+            this.dataGridView_入库.AutoGenerateColumns = false;
             this.dataGridView_入库.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_入库.Location = new System.Drawing.Point(344, 72);
+            this.dataGridView_入库.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn4,
+            this.日期DataGridViewTextBoxColumn3,
+            this.商家编码DataGridViewTextBoxColumn3,
+            this.数量DataGridViewTextBoxColumn3,
+            this.备注DataGridViewTextBoxColumn4});
+            this.dataGridView_入库.DataSource = this.orderList入库BindingSource;
+            this.dataGridView_入库.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView_入库.Location = new System.Drawing.Point(0, 0);
             this.dataGridView_入库.Name = "dataGridView_入库";
             this.dataGridView_入库.RowTemplate.Height = 23;
-            this.dataGridView_入库.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView_入库.Size = new System.Drawing.Size(932, 325);
             this.dataGridView_入库.TabIndex = 0;
+            this.dataGridView_入库.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_入库_CellBeginEdit);
             // 
-            // splitContainer4
+            // idDataGridViewTextBoxColumn4
             // 
-            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer4.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer4.Name = "splitContainer4";
-            this.splitContainer4.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.idDataGridViewTextBoxColumn4.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn4.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn4.Name = "idDataGridViewTextBoxColumn4";
+            this.idDataGridViewTextBoxColumn4.Width = 60;
             // 
-            // splitContainer4.Panel2
+            // 日期DataGridViewTextBoxColumn3
             // 
-            this.splitContainer4.Panel2.Controls.Add(this.dataGridView_出库);
-            this.splitContainer4.Size = new System.Drawing.Size(792, 424);
-            this.splitContainer4.SplitterDistance = 101;
-            this.splitContainer4.TabIndex = 0;
+            this.日期DataGridViewTextBoxColumn3.DataPropertyName = "日期";
+            this.日期DataGridViewTextBoxColumn3.HeaderText = "日期";
+            this.日期DataGridViewTextBoxColumn3.Name = "日期DataGridViewTextBoxColumn3";
             // 
-            // dataGridView_出库
+            // 商家编码DataGridViewTextBoxColumn3
             // 
-            this.dataGridView_出库.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_出库.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView_出库.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView_出库.Name = "dataGridView_出库";
-            this.dataGridView_出库.RowTemplate.Height = 23;
-            this.dataGridView_出库.Size = new System.Drawing.Size(792, 319);
-            this.dataGridView_出库.TabIndex = 0;
+            this.商家编码DataGridViewTextBoxColumn3.DataPropertyName = "商家编码";
+            this.商家编码DataGridViewTextBoxColumn3.DataSource = this.selectstockNumBindingSource;
+            this.商家编码DataGridViewTextBoxColumn3.DisplayMember = "商家编码";
+            this.商家编码DataGridViewTextBoxColumn3.HeaderText = "商家编码";
+            this.商家编码DataGridViewTextBoxColumn3.Name = "商家编码DataGridViewTextBoxColumn3";
+            this.商家编码DataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.商家编码DataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.商家编码DataGridViewTextBoxColumn3.Width = 120;
+            // 
+            // 数量DataGridViewTextBoxColumn3
+            // 
+            this.数量DataGridViewTextBoxColumn3.DataPropertyName = "数量";
+            this.数量DataGridViewTextBoxColumn3.HeaderText = "数量";
+            this.数量DataGridViewTextBoxColumn3.Name = "数量DataGridViewTextBoxColumn3";
+            this.数量DataGridViewTextBoxColumn3.Width = 60;
+            // 
+            // 备注DataGridViewTextBoxColumn4
+            // 
+            this.备注DataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.备注DataGridViewTextBoxColumn4.DataPropertyName = "备注";
+            this.备注DataGridViewTextBoxColumn4.HeaderText = "备注";
+            this.备注DataGridViewTextBoxColumn4.Name = "备注DataGridViewTextBoxColumn4";
+            // 
+            // orderList入库BindingSource
+            // 
+            this.orderList入库BindingSource.DataMember = "orderList_入库";
+            this.orderList入库BindingSource.DataSource = this.databaseDataSet;
+            // 
+            // stockNumTableAdapter
+            // 
+            this.stockNumTableAdapter.ClearBeforeFill = true;
+            // 
+            // select_stockNumTableAdapter
+            // 
+            this.select_stockNumTableAdapter.ClearBeforeFill = true;
+            // 
+            // orderListTableAdapter
+            // 
+            this.orderListTableAdapter.ClearBeforeFill = true;
+            // 
+            // recoveredTableAdapter
+            // 
+            this.recoveredTableAdapter.ClearBeforeFill = true;
+            // 
+            // orderList_出库TableAdapter
+            // 
+            this.orderList_出库TableAdapter.ClearBeforeFill = true;
+            // 
+            // orderList_入库TableAdapter
+            // 
+            this.orderList_入库TableAdapter.ClearBeforeFill = true;
+            // 
+            // button_选中出库
+            // 
+            this.button_选中出库.Location = new System.Drawing.Point(344, 67);
+            this.button_选中出库.Name = "button_选中出库";
+            this.button_选中出库.Size = new System.Drawing.Size(75, 23);
+            this.button_选中出库.TabIndex = 3;
+            this.button_选中出库.Text = "选中出库";
+            this.button_选中出库.UseVisualStyleBackColor = true;
+            this.button_选中出库.Visible = false;
+            this.button_选中出库.Click += new System.EventHandler(this.button_选中出库_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(940, 450);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -716,17 +1066,30 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockNumBindingSource)).EndInit();
             this.tabPage_库存查看.ResumeLayout(false);
-            this.tabPage_库存查看.PerformLayout();
+            this.splitContainer5.Panel1.ResumeLayout(false);
+            this.splitContainer5.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
+            this.splitContainer5.ResumeLayout(false);
+            this.splitContainer6.Panel1.ResumeLayout(false);
+            this.splitContainer6.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer6)).EndInit();
+            this.splitContainer6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_orderList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderListBindingSource)).EndInit();
             this.tabPage_出库.ResumeLayout(false);
-            this.tabPage_入库.ResumeLayout(false);
-            this.splitContainer3.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
-            this.splitContainer3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_入库)).EndInit();
+            this.splitContainer4.Panel1.ResumeLayout(false);
             this.splitContainer4.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
             this.splitContainer4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_出库)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderList出库BindingSource)).EndInit();
+            this.tabPage_入库.ResumeLayout(false);
+            this.splitContainer3.Panel1.ResumeLayout(false);
+            this.splitContainer3.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
+            this.splitContainer3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_入库)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderList入库BindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -741,8 +1104,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private DatabaseDataSet databaseDataSet;
-        private System.Windows.Forms.BindingSource recoveredBindingSource;
-        private DatabaseDataSetTableAdapters.recoveredTableAdapter recoveredTableAdapter;
         private System.Windows.Forms.Button button_Save;
         private System.Windows.Forms.Button button_get;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
@@ -752,13 +1113,33 @@
         private System.Windows.Forms.TextBox textBox_code;
         private System.Windows.Forms.Button button_SCode;
         private System.Windows.Forms.Button button_SDate;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_退件入库;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button_add;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.BindingSource stockNumBindingSource;
         private DatabaseDataSetTableAdapters.stockNumTableAdapter stockNumTableAdapter;
         private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.Button button_stockNum_Save;
+        private System.Windows.Forms.BindingSource selectstockNumBindingSource;
+        private DatabaseDataSetTableAdapters.Select_stockNumTableAdapter select_stockNumTableAdapter;
+        private System.Windows.Forms.TabPage tabPage_库存查看;
+        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.TabPage tabPage_出库;
+        private System.Windows.Forms.TabPage tabPage_入库;
+        private System.Windows.Forms.SplitContainer splitContainer3;
+        private System.Windows.Forms.DataGridView dataGridView_入库;
+        private System.Windows.Forms.SplitContainer splitContainer4;
+        private System.Windows.Forms.DataGridView dataGridView_出库;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.DataGridView dataGridView_orderList;
+        private System.Windows.Forms.BindingSource orderListBindingSource;
+        private DatabaseDataSetTableAdapters.orderListTableAdapter orderListTableAdapter;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Button button_orderList;
+        private DatabaseDataSetTableAdapters.recoveredTableAdapter recoveredTableAdapter;
+        private System.Windows.Forms.BindingSource recoveredBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn 商家编码DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn 占用库存DataGridViewTextBoxColumn;
@@ -766,14 +1147,32 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 总库存DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn 备注DataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn 隐藏DataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button button_stockNum_Save;
-        private System.Windows.Forms.BindingSource selectstockNumBindingSource;
-        private DatabaseDataSetTableAdapters.Select_stockNumTableAdapter select_stockNumTableAdapter;
-        private System.Windows.Forms.TabPage tabPage_库存查看;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TreeView treeView1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.SplitContainer splitContainer5;
+        private System.Windows.Forms.SplitContainer splitContainer6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 日期DataGridViewTextBoxColumn1;
+        private CustomDGVComboBoxColumn 商家编码DataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 数量DataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 备注DataGridViewTextBoxColumn2;
+        private System.Windows.Forms.BindingSource orderList出库BindingSource;
+        private DatabaseDataSetTableAdapters.orderList_出库TableAdapter orderList_出库TableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 日期DataGridViewTextBoxColumn2;
+        private CustomDGVComboBoxColumn 商家编码DataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 数量DataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 备注DataGridViewTextBoxColumn3;
+        private System.Windows.Forms.BindingSource orderList入库BindingSource;
+        private DatabaseDataSetTableAdapters.orderList_入库TableAdapter orderList_入库TableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 日期DataGridViewTextBoxColumn3;
+        private CustomDGVComboBoxColumn 商家编码DataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 数量DataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 备注DataGridViewTextBoxColumn4;
+        private System.Windows.Forms.Button button_出库;
+        private System.Windows.Forms.Button button_出库单保存;
+        private System.Windows.Forms.Button button_入库;
+        private System.Windows.Forms.Button button_入库单保存;
+        private System.Windows.Forms.Button button_库存查看刷新;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn 日期DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn 单号DataGridViewTextBoxColumn;
@@ -782,15 +1181,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 备注DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewImageColumn 图片DataGridViewImageColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn 处理DataGridViewTextBoxColumn;
-        private System.Windows.Forms.RichTextBox textBoxOutput;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button_sumUsable;
-        private System.Windows.Forms.TabPage tabPage_出库;
-        private System.Windows.Forms.TabPage tabPage_入库;
-        private System.Windows.Forms.SplitContainer splitContainer3;
-        private System.Windows.Forms.DataGridView dataGridView_入库;
-        private System.Windows.Forms.SplitContainer splitContainer4;
-        private System.Windows.Forms.DataGridView dataGridView_出库;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn 入库DataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button button_撤销出入库;
+        private System.Windows.Forms.Button button_选中出库;
     }
 }
 
