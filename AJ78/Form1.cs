@@ -490,30 +490,8 @@ namespace AJ78
 
         private void button6_Click(object sender, EventArgs e)
         {  
-             orderList_出库TableAdapter.Update(databaseDataSet); 
-            //for (int i = databaseDataSet.orderList_出库.Count-1; i == 0; i--)
-           foreach (DataRow dr in databaseDataSet.orderList_出库.Rows)
-            {
+             
                
-                 DataRow[] drs = databaseDataSet.stockNum.Select("商家编码 ='" + dr[2].ToString() + "'");
-                if (drs.Length == 1)
-                {
-                   
-                    drs[0][4] = (int)drs[0][4] - (int)dr[3];
-                    databaseDataSet.orderList.Rows.Add(null, dr[1], dr[2], dr[3], "出库"+dr[4]);
-                 
-                }
-               
-            }
-            
-                databaseDataSet.orderList_出库.Rows.Clear();
-            
-
-            orderList_出库TableAdapter.Update(databaseDataSet);
-            dataGridView_出库.Refresh();
-
-            stockNumTableAdapter.Update(databaseDataSet);
-            orderListTableAdapter.Update(databaseDataSet);
 
         }
 
@@ -690,7 +668,7 @@ namespace AJ78
                             else if (dgvr.Cells[4].Value.ToString().StartsWith("入库"))
                             {
                                drs[0][4] = (int)drs[0][4] - (int)dgvr.Cells[3].Value;
-                                databaseDataSet.orderList_出库.Rows.Add(null, dgvr.Cells[1].Value, dgvr.Cells[2].Value, dgvr.Cells[3].Value, dgvr.Cells[4].Value);
+                                databaseDataSet.orderList_入库.Rows.Add(null, dgvr.Cells[1].Value, dgvr.Cells[2].Value, dgvr.Cells[3].Value, dgvr.Cells[4].Value);
                             }
                             else
                             {
@@ -725,35 +703,70 @@ namespace AJ78
 
         private void button_选中出库_Click(object sender, EventArgs e)
         {
-            //orderList_出库TableAdapter.Update(databaseDataSet);
-            //if (dataGridView_出库.SelectedRows.Count  > 0)
-            //{
-            //    foreach (DataGridViewRow dgvr in dataGridView_出库.SelectedRows)
-            //    {
+            orderList_出库TableAdapter.Update(databaseDataSet);
+            if (dataGridView_出库.SelectedRows.Count > 0)
+            {
+                foreach (DataGridViewRow dgvr in dataGridView_出库.SelectedRows)
+                {
 
-            //        DataRow[] drs = databaseDataSet.stockNum.Select("商家编码 ='" + dr[2].ToString() + "'");
-            //        if (drs.Length == 1)
-            //        {
+                    DataRow[] drs = databaseDataSet.stockNum.Select("商家编码 ='" + dgvr.Cells[2].Value.ToString() + "'");
+                    if (drs.Length == 1)
+                    {
+                       drs[0][4] = (int)drs[0][4] - (int)dgvr.Cells[3].Value;
+                        
+                        databaseDataSet.orderList.Rows.Add(null, dgvr.Cells[1].Value, dgvr.Cells[2].Value, dgvr.Cells[3].Value, "出库" +dgvr.Cells[4].Value);
 
-            //            drs[0][4] = (int)drs[0][4] - (int)dr[3];
-            //            databaseDataSet.orderList.Rows.Add(null, dr[1], dr[2], dr[3], "出库" + dr[4]);
-
-            //        }
-
-            //    }
-
-              
-            //    databaseDataSet.orderList_出库.Rows.Clear();
+                        dataGridView_出库.Rows.Remove(dgvr);
+                        dataGridView_出库.EndEdit();
+                        orderList_出库TableAdapter.Update(databaseDataSet);
 
 
-            //    orderList_出库TableAdapter.Update(databaseDataSet);
-            //    dataGridView_出库.Refresh();
+                    }
 
-            //    stockNumTableAdapter.Update(databaseDataSet);
-            //    orderListTableAdapter.Update(databaseDataSet);
-            //}
+                }
+
+
+                stockNumTableAdapter.Update(databaseDataSet);
+                orderList_出库TableAdapter.Update(databaseDataSet);
+                orderList_入库TableAdapter.Update(databaseDataSet);
+                orderListTableAdapter.Update(databaseDataSet);
+                dataGridView_出库.Refresh();
+ 
+            }
         }
 
+        private void button_选中入库_Click(object sender, EventArgs e)
+        {
+            orderList_入库TableAdapter.Update(databaseDataSet);
+            if (dataGridView_入库.SelectedRows.Count > 0)
+            {
+                foreach (DataGridViewRow dgvr in dataGridView_入库.SelectedRows)
+                {
+
+                    DataRow[] drs = databaseDataSet.stockNum.Select("商家编码 ='" + dgvr.Cells[2].Value.ToString() + "'");
+                    if (drs.Length == 1)
+                    {
+                        drs[0][4] = (int)drs[0][4] + (int)dgvr.Cells[3].Value;
+
+                        databaseDataSet.orderList.Rows.Add(null, dgvr.Cells[1].Value, dgvr.Cells[2].Value, dgvr.Cells[3].Value, "入库" + dgvr.Cells[4].Value);
+
+                        dataGridView_入库.Rows.Remove(dgvr);
+                        dataGridView_入库.EndEdit();
+                        orderList_入库TableAdapter.Update(databaseDataSet);
+
+
+                    }
+
+                }
+
+
+                stockNumTableAdapter.Update(databaseDataSet);
+                orderList_出库TableAdapter.Update(databaseDataSet);
+                orderList_入库TableAdapter.Update(databaseDataSet);
+                orderListTableAdapter.Update(databaseDataSet);
+                dataGridView_入库.Refresh();
+            }
+        }
         private void button_orderList_Click(object sender, EventArgs e)
         {
             this.orderListTableAdapter.FillByDate(this.databaseDataSet.orderList, dateTimePicker2.Value.Date, dateTimePicker2.Value.Date.AddDays(1));

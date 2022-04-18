@@ -29,6 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage_退件处理 = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -89,6 +100,7 @@
             this.orderListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage_出库 = new System.Windows.Forms.TabPage();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.button_选中出库 = new System.Windows.Forms.Button();
             this.button_出库单保存 = new System.Windows.Forms.Button();
             this.button_出库 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -101,6 +113,7 @@
             this.orderList出库BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage_入库 = new System.Windows.Forms.TabPage();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.button_选中入库 = new System.Windows.Forms.Button();
             this.button_入库 = new System.Windows.Forms.Button();
             this.button_入库单保存 = new System.Windows.Forms.Button();
             this.dataGridView_入库 = new System.Windows.Forms.DataGridView();
@@ -116,7 +129,6 @@
             this.recoveredTableAdapter = new AJ78.DatabaseDataSetTableAdapters.recoveredTableAdapter();
             this.orderList_出库TableAdapter = new AJ78.DatabaseDataSetTableAdapters.orderList_出库TableAdapter();
             this.orderList_入库TableAdapter = new AJ78.DatabaseDataSetTableAdapters.orderList_入库TableAdapter();
-            this.button_选中出库 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage_退件处理.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -366,6 +378,14 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
@@ -378,6 +398,14 @@
             this.处理DataGridViewTextBoxColumn,
             this.入库DataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.recoveredBindingSource;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
@@ -519,6 +547,14 @@
             // dataGridView2
             // 
             this.dataGridView2.AutoGenerateColumns = false;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn1,
@@ -529,6 +565,14 @@
             this.备注DataGridViewTextBoxColumn1,
             this.隐藏DataGridViewTextBoxColumn});
             this.dataGridView2.DataSource = this.stockNumBindingSource;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(0, 0);
             this.dataGridView2.Name = "dataGridView2";
@@ -703,6 +747,14 @@
             this.dataGridView_orderList.AllowUserToAddRows = false;
             this.dataGridView_orderList.AllowUserToDeleteRows = false;
             this.dataGridView_orderList.AutoGenerateColumns = false;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_orderList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView_orderList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_orderList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn2,
@@ -711,10 +763,26 @@
             this.数量DataGridViewTextBoxColumn1,
             this.备注DataGridViewTextBoxColumn2});
             this.dataGridView_orderList.DataSource = this.orderListBindingSource;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_orderList.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView_orderList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_orderList.Location = new System.Drawing.Point(0, 0);
             this.dataGridView_orderList.Name = "dataGridView_orderList";
             this.dataGridView_orderList.ReadOnly = true;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_orderList.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView_orderList.RowTemplate.Height = 23;
             this.dataGridView_orderList.Size = new System.Drawing.Size(646, 354);
             this.dataGridView_orderList.TabIndex = 7;
@@ -798,6 +866,16 @@
             this.splitContainer4.SplitterDistance = 101;
             this.splitContainer4.TabIndex = 0;
             // 
+            // button_选中出库
+            // 
+            this.button_选中出库.Location = new System.Drawing.Point(344, 67);
+            this.button_选中出库.Name = "button_选中出库";
+            this.button_选中出库.Size = new System.Drawing.Size(75, 23);
+            this.button_选中出库.TabIndex = 3;
+            this.button_选中出库.Text = "选中出库";
+            this.button_选中出库.UseVisualStyleBackColor = true;
+            this.button_选中出库.Click += new System.EventHandler(this.button_选中出库_Click);
+            // 
             // button_出库单保存
             // 
             this.button_出库单保存.Location = new System.Drawing.Point(263, 67);
@@ -831,6 +909,14 @@
             // dataGridView_出库
             // 
             this.dataGridView_出库.AutoGenerateColumns = false;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_出库.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView_出库.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_出库.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn3,
@@ -839,6 +925,14 @@
             this.数量DataGridViewTextBoxColumn2,
             this.备注DataGridViewTextBoxColumn3});
             this.dataGridView_出库.DataSource = this.orderList出库BindingSource;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_出库.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView_出库.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_出库.Location = new System.Drawing.Point(0, 0);
             this.dataGridView_出库.Name = "dataGridView_出库";
@@ -910,6 +1004,7 @@
             // 
             // splitContainer3.Panel1
             // 
+            this.splitContainer3.Panel1.Controls.Add(this.button_选中入库);
             this.splitContainer3.Panel1.Controls.Add(this.button_入库);
             this.splitContainer3.Panel1.Controls.Add(this.button_入库单保存);
             // 
@@ -920,13 +1015,23 @@
             this.splitContainer3.SplitterDistance = 95;
             this.splitContainer3.TabIndex = 0;
             // 
+            // button_选中入库
+            // 
+            this.button_选中入库.Location = new System.Drawing.Point(434, 58);
+            this.button_选中入库.Name = "button_选中入库";
+            this.button_选中入库.Size = new System.Drawing.Size(75, 23);
+            this.button_选中入库.TabIndex = 2;
+            this.button_选中入库.Text = "选中入库";
+            this.button_选中入库.UseVisualStyleBackColor = true;
+            this.button_选中入库.Click += new System.EventHandler(this.button_选中入库_Click);
+            // 
             // button_入库
             // 
-            this.button_入库.Location = new System.Drawing.Point(434, 58);
+            this.button_入库.Location = new System.Drawing.Point(515, 58);
             this.button_入库.Name = "button_入库";
             this.button_入库.Size = new System.Drawing.Size(75, 23);
             this.button_入库.TabIndex = 1;
-            this.button_入库.Text = "入库";
+            this.button_入库.Text = "全部入库";
             this.button_入库.UseVisualStyleBackColor = true;
             this.button_入库.Click += new System.EventHandler(this.button_入库_Click);
             // 
@@ -943,6 +1048,14 @@
             // dataGridView_入库
             // 
             this.dataGridView_入库.AutoGenerateColumns = false;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_入库.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView_入库.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_入库.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn4,
@@ -951,6 +1064,14 @@
             this.数量DataGridViewTextBoxColumn3,
             this.备注DataGridViewTextBoxColumn4});
             this.dataGridView_入库.DataSource = this.orderList入库BindingSource;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_入库.DefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridView_入库.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_入库.Location = new System.Drawing.Point(0, 0);
             this.dataGridView_入库.Name = "dataGridView_入库";
@@ -1025,17 +1146,6 @@
             // orderList_入库TableAdapter
             // 
             this.orderList_入库TableAdapter.ClearBeforeFill = true;
-            // 
-            // button_选中出库
-            // 
-            this.button_选中出库.Location = new System.Drawing.Point(344, 67);
-            this.button_选中出库.Name = "button_选中出库";
-            this.button_选中出库.Size = new System.Drawing.Size(75, 23);
-            this.button_选中出库.TabIndex = 3;
-            this.button_选中出库.Text = "选中出库";
-            this.button_选中出库.UseVisualStyleBackColor = true;
-            this.button_选中出库.Visible = false;
-            this.button_选中出库.Click += new System.EventHandler(this.button_选中出库_Click);
             // 
             // Form1
             // 
@@ -1184,6 +1294,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn 入库DataGridViewTextBoxColumn;
         private System.Windows.Forms.Button button_撤销出入库;
         private System.Windows.Forms.Button button_选中出库;
+        private System.Windows.Forms.Button button_选中入库;
     }
 }
 
